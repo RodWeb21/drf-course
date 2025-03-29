@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView
 from .models import Person
 from .serializers import PersonSerializer
 
@@ -26,5 +26,10 @@ class PersonDestroyView(DestroyAPIView):
 
 
 class PersonUpdateView(UpdateAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+
+class PersonRetrieveUpdateView(RetrieveUpdateAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
