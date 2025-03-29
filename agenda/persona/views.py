@@ -4,47 +4,47 @@ from .models import Person
 from .serializers import PersonSerializer
 
 
-class PersonListApiView(ListAPIView):
+class PersonListAPIView(ListAPIView):
     serializer_class = PersonSerializer
 
     def get_queryset(self):
         return Person.objects.all()
 
 
-class PersonCreateView(CreateAPIView):
+class PersonCreateAPIView(CreateAPIView):
     serializer_class = PersonSerializer
 
 
-class PersonRetrieveView(RetrieveAPIView):
-    serializer_class = PersonSerializer
-    queryset = Person.objects.all()
-
-
-class PersonDestroyView(DestroyAPIView):
+class PersonRetrieveAPIView(RetrieveAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
 
-class PersonUpdateView(UpdateAPIView):
+class PersonDestroyAPIView(DestroyAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
 
-class PersonRetrieveUpdateView(RetrieveUpdateAPIView):
+class PersonUpdateAPIView(UpdateAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
 
-class PersonListCreateView(ListCreateAPIView):
+class PersonRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
 
-class PersonRetrieveDestroyView(RetrieveDestroyAPIView):
+class PersonListCreateAPIView(ListCreateAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
 
-class PersonRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+class PersonRetrieveDestroyAPIView(RetrieveDestroyAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+
+class PersonRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
