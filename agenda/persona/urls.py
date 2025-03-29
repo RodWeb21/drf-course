@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/persona/destroy/<pk>', views.PersonDestroyView.as_view()),
     path('api/persona/update/<pk>', views.PersonUpdateView.as_view()),
     path('api/persona/retrieve-update/<pk>', views.PersonRetrieveUpdateView.as_view()),
+    path('api/persona/list-create/', views.PersonListCreateView.as_view()),
 ]
