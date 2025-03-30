@@ -62,3 +62,11 @@ class PersonCreateMixin(mixins.CreateModelMixin, generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+
+class PersonRetrieveMixin(mixins.RetrieveModelMixin, generics.GenericAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
