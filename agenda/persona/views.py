@@ -1,50 +1,48 @@
-from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView, ListCreateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework import generics
 from .models import Person
 from .serializers import PersonSerializer
 
 
-class PersonListAPIView(ListAPIView):
-    serializer_class = PersonSerializer
-
-    def get_queryset(self):
-        return Person.objects.all()
-
-
-class PersonCreateAPIView(CreateAPIView):
-    serializer_class = PersonSerializer
-
-
-class PersonRetrieveAPIView(RetrieveAPIView):
-    serializer_class = PersonSerializer
+class PersonListAPIView(generics.ListAPIView):
     queryset = Person.objects.all()
-
-
-class PersonDestroyAPIView(DestroyAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonCreateAPIView(generics.CreateAPIView):
     queryset = Person.objects.all()
-
-
-class PersonUpdateAPIView(UpdateAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Person.objects.all()
-
-
-class PersonRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonDestroyAPIView(generics.DestroyAPIView):
     queryset = Person.objects.all()
-
-
-class PersonListCreateAPIView(ListCreateAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonUpdateAPIView(generics.UpdateAPIView):
     queryset = Person.objects.all()
-
-
-class PersonRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Person.objects.all()
+    serializer_class = PersonSerializer
 
 
-class PersonRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+class PersonListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+
+class PersonRetrieveDestroyAPIView(generics.RetrieveDestroyAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+
+class PersonRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
