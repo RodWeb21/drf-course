@@ -19,4 +19,5 @@ urlpatterns = [
     path('api/persona/list-create-mixin/<pk>', views.PersonListCreateMixin.as_view()),
     path('api/persona/retrieve-update-mixin/<pk>', views.PersonRetrieveUpdateMixin.as_view()),
     path('api/persona/retrieve-destroy-mixin/<pk>', views.PersonRetrieveDestroyMixin.as_view()),
+    path('api/persona/retrieve-update-destroy-mixin/<pk>', views.PersonRetrieveUpdateDestroyMixin.as_view()),
 ]
