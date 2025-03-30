@@ -97,3 +97,14 @@ class PersonListCreateMixin(mixins.ListModelMixin, mixins.CreateModelMixin, gene
     
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+
+class PersonRetrieveUpdateMixin(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
