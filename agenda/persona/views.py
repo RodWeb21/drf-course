@@ -108,3 +108,14 @@ class PersonRetrieveUpdateMixin(mixins.RetrieveModelMixin, mixins.UpdateModelMix
     
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
+
+
+class PersonRetrieveDestroyMixin(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
