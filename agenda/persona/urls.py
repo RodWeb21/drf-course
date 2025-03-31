@@ -1,10 +1,12 @@
 from django.urls import path
 from . import views
 
+app_name = 'persona_app'
+
 urlpatterns = [
     path('api/persona/list/', views.PersonListAPIView.as_view()),
     path('api/persona/create/', views.PersonCreateAPIView.as_view()),
-    path('api/persona/retrieve/<pk>', views.PersonRetrieveAPIView.as_view()),
+    path('api/persona/retrieve/<pk>', views.PersonRetrieveAPIView.as_view(), name='retrieve'),
     path('api/persona/destroy/<pk>', views.PersonDestroyAPIView.as_view()),
     path('api/persona/update/<pk>', views.PersonUpdateAPIView.as_view()),
     path('api/persona/retrieve-update/<pk>', views.PersonRetrieveUpdateAPIView.as_view()),
@@ -21,4 +23,5 @@ urlpatterns = [
     path('api/persona/retrieve-destroy-mixin/<pk>', views.PersonRetrieveDestroyMixin.as_view()),
     path('api/persona/retrieve-update-destroy-mixin/<pk>', views.PersonRetrieveUpdateDestroyMixin.as_view()),
     path('api/reunion/list/', views.ReunionListAPIView.as_view()),
+    path('api/reunion/list-link/', views.ReunionListAPIViewLink.as_view()),
 ]
