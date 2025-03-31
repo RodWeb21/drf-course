@@ -1,6 +1,6 @@
 from rest_framework import generics, mixins
 from .models import Person, Reunion
-from .serializers import PersonSerializer, ReunionSerializer, ReunionSerializerLink, PersonPagination
+from .serializers import PersonSerializer, ReunionSerializer, ReunionSerializerLink, PersonPagination, CountReunionSerializer
 
 
 class PersonListAPIView(generics.ListAPIView):
@@ -149,3 +149,10 @@ class PersonPaginationListAPIView(generics.ListAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     pagination_class = PersonPagination
+
+
+class ReunionByPersonJob(generics.ListAPIView):
+    serializer_class = CountReunionSerializer
+
+    def get_queryset(self):
+        return Reunion.objects.cantidad_reuniones_job()
