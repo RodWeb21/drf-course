@@ -1,6 +1,6 @@
 from rest_framework import generics, mixins
-from .models import Person
-from .serializers import PersonSerializer
+from .models import Person, Reunion
+from .serializers import PersonSerializer, ReunionSerializer
 
 
 class PersonListAPIView(generics.ListAPIView):
@@ -133,3 +133,8 @@ class PersonRetrieveUpdateDestroyMixin(mixins.RetrieveModelMixin, mixins.UpdateM
     
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+
+class ReunionListAPIView(generics.ListAPIView):
+    queryset = Reunion.objects.all()
+    serializer_class = ReunionSerializer
